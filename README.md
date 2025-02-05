@@ -1,50 +1,78 @@
-# React + TypeScript + Vite
+# 🚀 React Jobs - A Job Marketplace
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **React-based job marketplace** where employers can post job listings and job seekers can browse and apply. Built with modern web technologies including **React**, **Vite**, and **Tailwind CSS**.
 
-Currently, two official plugins are available:
+## 📌 Technologies Used
+- **React** `^18.3.1`
+- **Vite** `^6.0.5`
+- **Tailwind CSS** `^3.4.17`
+- **JSON Server** (for simulating backend)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+📷 Screenshots
 
-## Expanding the ESLint configuration
+![alt text](image-1.png)
+![alt text](image-2.png)
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 📦 Project Setup
 
-- Configure the top-level `parserOptions` property like this:
+### 1️⃣ Clone the Repository
+```sh
+git clone https://github.com/L3pereira/react-jobs.git
+cd react-jobs
+```
+### 2️⃣ Install Dependencies
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```sh
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 3️⃣ Run the Development Server
+Start the React app using Vite:
+
+```sh
+npm run dev
+```
+The app will be available at http://localhost:3000
+
+### 4️⃣ Start the Fake API Server
+
+Since the project uses json-server to simulate a backend, run:
+
+```sh
+npm run server
+```
+The fake API will be available at http://localhost:8000
+---
+
+## ⚙️ Configuration (Vite Proxy Setup)
+The project uses Vite's proxy to forward API requests to the fake JSON server:
+
 
 ```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+server: {
+  port: 3000,
+  proxy: {
+    '/api': {
+      target: 'http://localhost:8000',
+      changeOrigin: true,
+      rewrite: (path) => path.replace(/^\/api/, '')
+    }
+  }
+}
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+This allows frontend requests like fetch('/api/jobs') to be forwarded to http://localhost:8000/jobs
+
+---
+
+## 📜 Available Scripts
+
+| Script          | Description                               |
+|----------------|-------------------------------------------|
+| `npm run dev`  | Starts the development server (Vite)     |
+| `npm run build` | Builds the project for production       |
+| `npm run preview` | Serves the production build           |
+| `npm run server` | Starts the JSON Server (backend simulation) |
+| `npm run lint` | Runs ESLint to check for code issues     |
