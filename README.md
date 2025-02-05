@@ -28,15 +28,7 @@ cd react-jobs
 npm install
 ```
 
-### 3️⃣ Run the Development Server
-Start the React app using Vite:
-
-```sh
-npm run dev
-```
-The app will be available at http://localhost:3000
-
-### 4️⃣ Start the Fake API Server
+###  3️⃣Start the Fake API Server
 
 Since the project uses json-server to simulate a backend, run:
 
@@ -45,6 +37,14 @@ npm run server
 ```
 
 The fake API will be available at http://localhost:8000
+
+### 4️⃣ Run the Development Server
+Start the React app using Vite:
+
+```sh
+npm run dev
+```
+The app will be available at http://localhost:3000
 
 ---
 
