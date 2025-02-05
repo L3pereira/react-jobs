@@ -11,8 +11,8 @@ A **React-based job marketplace** where employers can post job listings and job 
 ---
 📷 Screenshots
 
-![alt text](image-1.png)
-![alt text](image-2.png)
+![alt text](readme_images/image-1.png)
+![alt text](readme_images/image-2.png)
 ---
 
 ## 📦 Project Setup
