@@ -43,7 +43,9 @@ Since the project uses json-server to simulate a backend, run:
 ```sh
 npm run server
 ```
+
 The fake API will be available at http://localhost:8000
+
 ---
 
 ## ⚙️ Configuration (Vite Proxy Setup)
